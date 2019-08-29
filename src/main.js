@@ -10,7 +10,7 @@ import '@/assets/css/global.css'
 Vue.config.productionTip = false
 
 // 全局挂载request
-Vue.prototype.$http = request
+Vue.prototype.$http = requset
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
