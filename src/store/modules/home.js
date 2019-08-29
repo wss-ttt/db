@@ -9,7 +9,7 @@ export default {
     },
     actions: {
         loadMore({ commit, state }) {
-            request({
+            /* request({
                 url: 'http://localhost:3000/users/list',
                 method: 'get'
             }).then(( data ) => {
@@ -19,7 +19,7 @@ export default {
                     type: 'loadMore',
                     res: data
                 })
-            })
+            }) */
         }
     },
     mutations: {
@@ -28,9 +28,9 @@ export default {
         } */
 
         // 对应着第二种写法啊
-        loadMore(state, playload) {
+        /* loadMore(state, playload) {
             console.log(playload)
             state.users = playload.res
-        }
+        } */
     }
 }

@@ -6,6 +6,7 @@
         <br />
         姓名:{{item.name}}
       </li>
+      <button @click="getData">请求</button>
     </ul>
   </div>
 </template>
@@ -23,7 +24,16 @@ export default {
     ...mapState(['home'])
   },
   methods: {
-    ...mapActions(['loadMore']) //  注意写法不要写错了
+    ...mapActions(['loadMore']), //  注意写法不要写错了
+    getData(){
+        this.$http({
+            /* url:'https://api.douban.com/v2/event/list?loc=108288&start=0&count=3', */
+            url:'/v2/event/list?loc=108288&start=0&count=3',
+            method:'get'
+        }).then((data)=>{
+            console.log(data)
+        })
+    }
   },
   created() {},
   mounted() {

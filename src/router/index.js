@@ -12,6 +12,11 @@ export default new Router({
       component: HelloWorld
     },
     {
+      path:'/test',
+      name:'test',
+      component: resolve => require(['@/views/test.vue'], resolve),
+    },
+    {
       path: '/main',
       name: 'main',
       component: resolve => require(['@/views/main.vue'], resolve),
