@@ -28,7 +28,7 @@ export default {
     getData(){
         this.$http({
             /* url:'https://api.douban.com/v2/event/list?loc=108288&start=0&count=3', */
-            url:'/v2/event/list?loc=108288&start=0&count=3',
+            url:'/api/v2/event/list?loc=108288&start=0&count=3',
             method:'get'
         }).then((data)=>{
             console.log(data)
