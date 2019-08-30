@@ -38,10 +38,11 @@ export default {
     ...mapState(['home'])
   },
   methods: {
-    ...mapActions(['loadMore']), //  注意写法不要写错了
+    ...mapActions(['loadMore','getUsers']), 
     infiniteHandler($state) {
       setTimeout(() => {
         this.loadMore()
+        this.getUsers()   // get Users
         $state.loaded()
       }, 1000)
     }
