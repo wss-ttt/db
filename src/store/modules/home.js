@@ -1,5 +1,4 @@
 import request from '@/utils/request.js'
-import { stat } from 'fs';
 export default {
     namespaced: false,
     state: {
