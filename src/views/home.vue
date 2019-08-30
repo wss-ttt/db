@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <!-- <v-homeList v-for="(item,index) in home.events" :item="item" :key="index"></v-homeList> -->
-    <v-list v-for="(item,index) in home.users" :key="index" :item="item"></v-list>
+    <v-homeList v-for="(item,index) in home.events" :item="item" :key="index"></v-homeList>
+    <!-- <v-list v-for="(item,index) in home.users" :key="index" :item="item"></v-list> -->
     <infinite-loading
       :distance="distance"
       @infinite="infiniteHandler"
@@ -42,16 +42,13 @@ export default {
     infiniteHandler($state) {
       setTimeout(() => {
         this.loadMore()
-        this.getUsers()   // get Users
+        // this.getUsers()   // get Users
         $state.loaded()
       }, 1000)
     }
   },
   created() {},
   mounted() {
-    // 执行该方法
-    // this.loadMore()
-    // console.log(this.home)
   }
 }
 </script>

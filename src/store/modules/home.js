@@ -11,23 +11,23 @@ export default {
     },
     actions: {
         loadMore({ commit, state }) {
-            /* request({
-                url:'/api/v2/event/list?loc=108288&start=0&count=3',
-                method:'get'
-            }).then((data)=>{
+            request({
+                url: '/api/v2/event/list?loc=108288&start=0&count=3',
+                method: 'get'
+            }).then((data) => {
                 commit({
-                    type:'loadMore',
-                    res:data  // 传递的数据
+                    type: 'loadMore',
+                    res: data  // 传递的数据
                 })
-            }) */
+            })
         },
-        getUsers({ commit, state }){
+        getUsers({ commit, state }) {
             request({
                 url: 'http://localhost:3000/users/list',
                 method: 'get',
                 params: {
                     start: state.start,
-                    end: state.start +3
+                    end: state.start + 3
                 }
             }).then((data) => {
                 commit('changeStart')
@@ -43,14 +43,11 @@ export default {
         changeStart(state, playload) {
             state.start += 3
         },
-
         getUsers(state, playload) {
             state.users = state.users.concat(playload.res)
-        }
-        /* loadMore(state,playload){
-            // 保存请求返回的数据
-            console.log('playload',playload)
+        },
+        loadMore(state, playload) {
             state.events = state.events.concat(playload.res.events)
-        } */
+        }
     }
 }
