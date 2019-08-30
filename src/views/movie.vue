@@ -1,5 +1,5 @@
 <template>
-  <div class="movie">Movie</div>
+  <div class="movie has-header">Movie</div>
 </template>
 
 <script>

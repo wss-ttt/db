@@ -1,5 +1,5 @@
 <template>
-  <div class="details">
+  <div class="details has-header">
     <ul>
       <li>
         <span>标签:</span>

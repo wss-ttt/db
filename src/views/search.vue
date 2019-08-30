@@ -1,5 +1,5 @@
 <template>
-  <div class="search">search</div>
+  <div class="search has-header">search</div>
 </template>
 
 <script>

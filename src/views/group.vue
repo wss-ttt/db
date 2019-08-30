@@ -1,5 +1,5 @@
 <template>
-  <div class="group">group</div>
+  <div class="group has-header">group</div>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home has-header">
     <v-homeList v-for="(item,index) in home.events" :item="item" :key="index"></v-homeList>
     <!-- <v-list v-for="(item,index) in home.users" :key="index" :item="item"></v-list> -->
     <infinite-loading

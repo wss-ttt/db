@@ -1,5 +1,5 @@
 <template>
-  <div class="book">book</div>
+  <div class="book has-header">book</div>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="broadcast">broadcast</div>
+  <div class="broadcast has-header">broadcast</div>
 </template>
 
 <script>
