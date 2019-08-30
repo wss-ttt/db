@@ -1,10 +1,12 @@
 import request from '@/utils/request.js'
+import { stat } from 'fs';
 export default {
     namespaced: false,
     state: {
         users: [],  // 保存用户数据
         events: [],
         start: 0,   // 开始的位置
+        skip:0,    // requeset doubna api start at 0
     },
     getters: {
 
@@ -12,7 +14,8 @@ export default {
     actions: {
         loadMore({ commit, state }) {
             request({
-                url: '/api/v2/event/list?loc=108288&start=0&count=3',
+                url: '/api/v2/event/list?loc=108288&start=' +
+                state.skip + '&count=3',
                 method: 'get'
             }).then((data) => {
                 commit({
@@ -47,6 +50,7 @@ export default {
             state.users = state.users.concat(playload.res)
         },
         loadMore(state, playload) {
+            state.skip += 3
             state.events = state.events.concat(playload.res.events)
         }
     }
