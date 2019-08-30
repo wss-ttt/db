@@ -5,8 +5,9 @@ export default {
     state: {
         users: [],  // 保存用户数据
         events: [],
+        eventItem:{},
         start: 0,   // 开始的位置
-        skip:0,    // requeset doubna api start at 0
+        skip: 0,    // requeset doubna api start at 0
     },
     getters: {
 
@@ -15,7 +16,7 @@ export default {
         loadMore({ commit, state }) {
             request({
                 url: '/api/v2/event/list?loc=108288&start=' +
-                state.skip + '&count=3',
+                    state.skip + '&count=3',
                 method: 'get'
             }).then((data) => {
                 commit({
@@ -39,6 +40,18 @@ export default {
                     res: data
                 })
             })
+        },
+        getDetails({ commit, state }, playload) {
+            request({
+                url: '/api/v2/event/' + playload.id,
+                method:'get'
+            }).then((data)=>{
+                console.log('详细信息',data)
+                commit({
+                    type:'getDetails',
+                    res:data
+                })
+            })
         }
 
     },
@@ -52,6 +65,9 @@ export default {
         loadMore(state, playload) {
             state.skip += 3
             state.events = state.events.concat(playload.res.events)
+        },
+        getDetails(state,playload){
+            state.eventItem = playload.res
         }
     }
 }

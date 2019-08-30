@@ -1,29 +1,62 @@
 <template>
-    <div class="wrapper">
-        
-    </div>
+  <div class="details">
+    <ul>
+      <li>
+        <span>标签:</span>
+        <span>
+          {{home.eventItem.tags}}
+        </span>
+      </li>
+      <li>
+        <span>地址:</span>
+        <span>
+          {{home.eventItem.address}}
+        </span>
+      </li>
+      <li>
+        <span>时间:</span>
+        <span>
+          {{home.eventItem.begin_time}}
+        </span>
+      </li>
+      <li>
+        <span>内容:</span>
+        <div v-html="home.eventItem.content"></div>
+      </li>
+    </ul>
+    <p v-html="home.eventItem.content"></p>
+  </div>
 </template>
 
 <script>
-  export default {
-    components:{},
-    props:{},
-    data(){
-      return {
-          
-      }
-    },
-    watch:{},
-    computed:{
-
-    },
-    methods:{},
-    created(){},
-    mounted(){
-        let id = this.$route.params.id
-        console.log(id)
+import { mapState } from 'vuex'
+export default {
+  components: {},
+  props: {},
+  data() {
+    return {
+      id: ''
     }
+  },
+  watch: {},
+  computed: {
+    ...mapState(['home'])
+  },
+  methods: {},
+  created() {},
+  mounted() {
+    let id = this.$route.params.id
+    console.log(id)
+    this.id = id
+    this.$store.dispatch({
+      type: 'getDetails',
+      id: this.id
+    })
   }
+}
 </script>
 <style scoped>
+.details{
+  padding: 5px;
+}
 </style>
