@@ -35,7 +35,10 @@
     justify-content:space-between;
     align-items: center;
     height: 50px;
-    background-color: red;
     padding: 0 15px;
+    position: fixed;
+    top:0;
+    left:0;
+    background-color: #fff;
 }
 </style>
