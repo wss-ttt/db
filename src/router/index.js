@@ -45,6 +45,11 @@ export default new Router({
           path: 'group',
           name: 'group',
           component: resolve => require(['@/views/group.vue'], resolve)
+        },
+        {
+          path:'details/:id',
+          name:'details',
+          component: resolve => require(['@/views/homeDetails.vue'], resolve)
         }
       ]
     }

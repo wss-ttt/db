@@ -25,6 +25,6 @@ export default {
 <style scoped lang="scss">
 .wrapper{
   width: 100%;
-  background: #ccc;
+  // background: #ccc;
 }
 </style>

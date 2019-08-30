@@ -1,35 +1,56 @@
 <template>
   <div class="home">
-    <ul>
-      <li v-for="(item,index) in home.users" :key="index">
-        编号:{{item.id}}
-        <br />
-        姓名:{{item.name}}
-      </li>
-    </ul>
+    <!-- <v-homeList v-for="(item,index) in home.events" :item="item" :key="index"></v-homeList> -->
+    <v-list v-for="(item,index) in home.users" :key="index" :item="item"></v-list>
+    <infinite-loading
+      :distance="distance"
+      @infinite="infiniteHandler"
+      ref="infiniteLoading"
+      spinner="bubbles"
+    >
+      <!-- <v-loading slot="spinner"></v-loading> -->
+      <div slot="no-more">已加载完毕!</div>
+    </infinite-loading>
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import vHomeList from '@/components/homeList.vue'
+import vList from '@/components/list.vue'
+import InfiniteLoading from 'vue-infinite-loading'
+import vLoading from '@/components/loading.vue'
 export default {
-  components: {},
+  components: {
+    vHomeList,
+    InfiniteLoading,
+    vLoading,
+    vList
+  },
   props: {},
   data() {
-    return {}
+    return {
+      distance: 10
+    }
   },
   watch: {},
   computed: {
     ...mapState(['home'])
   },
   methods: {
-    ...mapActions(['loadMore']) //  注意写法不要写错了
+    ...mapActions(['loadMore']), //  注意写法不要写错了
+    infiniteHandler($state) {
+      setTimeout(() => {
+        this.loadMore()
+        $state.loaded()
+      }, 1000)
+    }
   },
   created() {},
   mounted() {
     // 执行该方法
-    this.loadMore()
-    console.log(this.home)
+    // this.loadMore()
+    // console.log(this.home)
   }
 }
 </script>
