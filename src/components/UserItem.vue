@@ -1,9 +1,9 @@
 <template>
   <div class="user">
-    <template v-if="user.name">
+    <template v-if="user.userName">
         <img src="../assets/avatar.png" alt />
-        <!-- <span>{{user.name}},您好</span> -->
-        <router-link>{{user.name}},您好</router-link>
+        <span>{{user.userName}},您好</span>
+        <!-- <router-link>{{user.userName}},您好</router-link> -->
     </template>
     <template v-else>
         <img src="../assets/user_normal.jpg" alt />
