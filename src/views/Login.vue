@@ -9,7 +9,7 @@
         <input class="input" type="text" v-model="form.pwd" placeholder="密码" />
       </div>
       <div class="form-item">
-        <button class="btn login" @click="submit">登录</button>
+        <button type="button" class="btn login" @click="submit">登录</button>
         <div class="tips">
           <router-link :to="{name:'register'}">没有账号,立即注册</router-link>
         </div>
