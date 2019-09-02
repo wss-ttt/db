@@ -13,6 +13,9 @@
       </div>
       <div class="form-item">
         <button class="btn" @click="register">注册</button>
+        <div class="tips">
+          <router-link :to="{name:'login'}">去登录</router-link>
+        </div>
       </div>
     </form>
   </div>
@@ -87,5 +90,11 @@ export default {
   border-radius: 4px;
   font-size: 16px;
   color: #fff;
+  cursor: pointer;
+}
+.tips{
+  text-align:center;
+  font-size:12px;
+  color:#ccc;
 }
 </style>
