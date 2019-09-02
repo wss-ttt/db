@@ -1,6 +1,6 @@
 <template>
   <div class="register">
-    <h3>赶紧注册吧~</h3>
+    <h3>赶紧注册吧~{{isValid}}</h3>
     <form>
       <div class="form-item">
         <label for>用户名</label>
@@ -69,7 +69,7 @@ export default {
     ...mapState(['user']),
     isValid() {
       if (!this.userNameMsg && !this.pwdMsg && !this.rePwdMsg) return true
-      else false
+      else return false
     }
   },
   methods: {
