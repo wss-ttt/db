@@ -57,6 +57,11 @@ export default new Router({
       path:'/register',
       name:'register',
           component: resolve => require(['@/views/register.vue'], resolve)
+    },
+    {
+      path:'/login',
+      name:'login',
+          component: resolve => require(['@/views/Login.vue'], resolve)
     }
   ]
 })
