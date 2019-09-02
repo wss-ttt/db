@@ -3,16 +3,16 @@
     <h3>赶紧注册吧~</h3>
     <form>
       <div class="form-item">
-        <input type="email" v-model="email" class="input" placeholder="邮箱" />
+        <input type="text" v-model="form.userName" class="input" placeholder="用户名" />
       </div>
       <div class="form-item">
-        <input type="password" v-model="pass" class="input" placeholder="密码" />
+        <input type="password" v-model="form.pwd" class="input" placeholder="密码" />
       </div>
       <div class="form-item">
-        <input type="text" v-model="name" class="input" placeholder="用户名" />
+        <input type="password" v-model="form.rePwd" class="input" placeholder="确认密码" />
       </div>
       <div class="form-item">
-        <button class="btn" @click="register">注册</button>
+        <button type="button" class="btn" @click="register">注册</button>
         <div class="tips">
           <router-link :to="{name:'login'}">去登录</router-link>
         </div>
@@ -23,14 +23,17 @@
 
 <script>
 import { mapState } from 'vuex'
+import QS from 'qs'
 export default {
   components: {},
   props: {},
   data() {
     return {
-      email: '', // 邮箱
-      pass: '', // 密码
-      name: '' // 用户名
+      form: {
+        pwd: '', // 密码
+        rePwd:'',    // 确认密码
+        userName: '' // 用户名
+      }
     }
   },
   watch: {},
@@ -39,21 +42,31 @@ export default {
   },
   methods: {
     register() {
-      this.$store
-        .dispatch({
-          type: 'register',
-          email: this.email,
-          name: this.name,
-          pass: this.pass
+      this.$http({
+        url: 'http://localhost:2000/register',
+        method: 'post',
+        // 设置请求头信息  此处要设置请求信息
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        // 后端为node,这里需要序列化
+        data: QS.stringify({
+          userName: this.form.userName,
+          pwd: this.form.pwd
         })
-        .then(data => {
-          // 登录成功
+      }).then(res => {
+        if (res.code === 0) {
           alert('注册成功')
-          console.log('返回的数据', data)
-          this.$router.push({
-            name: 'home'
+          this.$store.commit({
+            type:'saveUser',
+            userName:this.form.userName,
+            pwd:this.form.pwd
           })
-        })
+          this.$router.push({
+            name:'home'
+          })
+        }
+      })
     }
   },
   created() {},
@@ -92,9 +105,9 @@ export default {
   color: #fff;
   cursor: pointer;
 }
-.tips{
-  text-align:center;
-  font-size:12px;
-  color:#ccc;
+.tips {
+  text-align: center;
+  font-size: 12px;
+  color: #ccc;
 }
 </style>
