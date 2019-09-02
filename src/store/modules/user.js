@@ -6,6 +6,9 @@ export default {
         pass:'',   // 保存密码
         name:'',   // 保存用户名
         token:'',    // 保存token
+        // 另一个登录接口的用户名和密码
+        userName:'',
+        pwd:'',
     },
     getters: {
 
@@ -40,6 +43,10 @@ export default {
             state.email = payload.email
             state.name = payload.name
             state.token = payload.token
+        },
+        saveUser(state,payload){
+           state.userName = payload.userName 
+           state.pwd = payload.pwd
         }
     }
 }
