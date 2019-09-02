@@ -96,7 +96,8 @@ export default {
   cursor: pointer;
 }
 .tips{
-  text-align:center;
+  padding:5px 0;
+  text-align:right;
   font-size:12px;
   color:#ccc;
 }
