@@ -1,5 +1,6 @@
 <template>
   <div class="home has-header">
+    <user-item></user-item>
     <v-homeList v-for="(item,index) in home.events" :item="item" :key="index"></v-homeList>
     <!-- <v-list v-for="(item,index) in home.users" :key="index" :item="item"></v-list> -->
     <infinite-loading
@@ -20,12 +21,14 @@ import vHomeList from '@/components/homeList.vue'
 import vList from '@/components/list.vue'
 import InfiniteLoading from 'vue-infinite-loading'
 import vLoading from '@/components/loading.vue'
+import UserItem from '@/components/UserItem'
 export default {
   components: {
     vHomeList,
     InfiniteLoading,
     vLoading,
-    vList
+    vList,
+    UserItem
   },
   props: {},
   data() {
