@@ -10,31 +10,32 @@ app.all('*', function(req, res, next) {
 	res.header("Content-Type", "application/json;charset=utf-8");
 	next();
 });
+// 用户数据
 var data = [
 
     {
         id:1,
-        name:'qiaofeng',
-        pass:'qiaofeng'
+        userName:'qiaofeng',
+        pwd:'qiaofeng'
     },
     {
         id:2,
-        name:'xiaolongnv',
-        pass:'xiaolongnv'
+        userName:'xiaolongnv',
+        pwd:'xiaolongnv'
     },
     {
         id:3,
-        name:'zhangsan',
-        pass:'zhangsan'
+        userName:'zhangsan',
+        pwd:'zhangsan'
     }
 ]
 // 登录接口
 app.get('/login',function(req,res){
     // 获取参数
-    var name = req.query.name
-    var pass = req.query.pass
+    var userName = req.query.userName
+    var pwd = req.query.pwd
     for(let item of data){
-        if(item.name === name && item.pass === pass){
+        if(item.userName === userName && item.pwd === pwd){
             res.json({
                 code:0,
                 message:'success'
