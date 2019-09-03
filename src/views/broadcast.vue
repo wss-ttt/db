@@ -1,10 +1,15 @@
 <template>
-  <div class="broadcast has-header">broadcast</div>
+  <div class="broadcast has-header">
+    <card-item v-for="(item,index) in 10" :key="index"></card-item>
+  </div>
 </template>
 
 <script>
+import CardItem from '@/components/CardItem.vue'
 export default {
-  components: {},
+  components: {
+    CardItem
+  },
   props: {},
   data() {
     return {}
@@ -16,5 +21,8 @@ export default {
   mounted() {}
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
+.broadcast{
+  padding: 0 15px;
+}
 </style>

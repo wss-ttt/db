@@ -39,7 +39,7 @@ export default new Router({
         {
           path: 'broadcast',
           name: 'broadcast',
-          component: resolve => require(['@/views/broadcast.vue'], resolve)
+          component: resolve => require(['@/views/Broadcast.vue'], resolve)
         },
         {
           path: 'group',
